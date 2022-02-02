@@ -46,17 +46,12 @@ $sql = "INSERT INTO records (date, patient, sick, medicine, report)
 VALUES ('".$date."', ".$_GET['id'].", '".$sick."', '".$medicine."', '".basename($_FILES["fileToUpload"]["name"])."')";
 if ($conn->query($sql) === TRUE) {
 echo "New record created successfully";
+echo '<script>window.location="patient.php"</script>';
 } else {
 echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
- if ($conn->query($sql) === TRUE) {
-      echo "<script>alert('Record updated successfully');</script>";
-      echo '<script>window.location="patient.php"</script>';
-    } else {
-      echo "Error updating record: " . $conn->error;
-    }
-    
+   
 $conn->close();
 
 
